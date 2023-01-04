@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Product} from '../model/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -7,4 +8,33 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
+  product1: Product = {
+    id: 10,
+    name: 'Igorrr',
+    description: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos nostrum quasi quisquam ratione vitae! Alias atque consequuntur dicta, facilis fugit, illum magnam, minus obcaecati perspiciatis placeat qui tempore voluptate.',
+    promo: .05,
+    price: 15,
+    category: 'CD',
+    active: true,
+  }
+
+  product2: Product = {
+    id: 11,
+    name: 'Motorhead',
+    description: '  Ipsum Lorem dolor sit amet, consectetur adipisicing elit. Commodi dignissimos nostrum quasi quisquam ratione vitae! Alias atque consequuntur dicta, facilis fugit, illum magnam, minus obcaecati perspiciatis placeat qui tempore voluptate.',
+    promo: .05,
+    price: 12,
+    category: 'CD',
+    active: true,
+  }
+
+  productSelected: Product|undefined
+  curentTimeout!: NodeJS.Timeout
+  getSelectedProduct(prodSelected: Product) {
+    this.productSelected = prodSelected
+    if(this.curentTimeout){
+      window.clearTimeout(this.curentTimeout);
+    }
+    this.curentTimeout =  setTimeout(() => this.productSelected = undefined, 3000)
+  }
 }
