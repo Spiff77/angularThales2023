@@ -1,6 +1,5 @@
 <h2>Products List</h2>
-<div [hidden]="!productSelected">
+<div *ngIf="productSelected">
   <span (click)="productSelected = undefined">X</span> You have selected : {{productSelected?.name}} ({{productSelected?.category}})
 </div>
-<app-product (outProduct)="getSelectedProduct($event)" [product]="product1"></app-product>
-<app-product (outProduct)="getSelectedProduct($event)" [product]="product2"></app-product>
+<app-product *ngFor="let prod of products" (outProduct)="getSelectedProduct($event)" [product]="prod"></app-product>

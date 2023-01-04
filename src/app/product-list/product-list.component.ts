@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component} from '@angular/core';
 import {Product} from '../model/product.model';
 
 @Component({
@@ -8,7 +8,9 @@ import {Product} from '../model/product.model';
 })
 export class ProductListComponent {
 
-  product1: Product = {
+
+  productSelected: Product|undefined
+  products: Product[] = [{
     id: 10,
     name: 'Igorrr',
     description: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos nostrum quasi quisquam ratione vitae! Alias atque consequuntur dicta, facilis fugit, illum magnam, minus obcaecati perspiciatis placeat qui tempore voluptate.',
@@ -16,9 +18,7 @@ export class ProductListComponent {
     price: 15,
     category: 'CD',
     active: true,
-  }
-
-  product2: Product = {
+  }, {
     id: 11,
     name: 'Motorhead',
     description: '  Ipsum Lorem dolor sit amet, consectetur adipisicing elit. Commodi dignissimos nostrum quasi quisquam ratione vitae! Alias atque consequuntur dicta, facilis fugit, illum magnam, minus obcaecati perspiciatis placeat qui tempore voluptate.',
@@ -26,9 +26,8 @@ export class ProductListComponent {
     price: 12,
     category: 'CD',
     active: true,
-  }
+  }]
 
-  productSelected: Product|undefined
   curentTimeout!: NodeJS.Timeout
   getSelectedProduct(prodSelected: Product) {
     this.productSelected = prodSelected
