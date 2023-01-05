@@ -1,6 +1,7 @@
 import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {Product} from '../model/product.model';
 import {ProductService} from '../product.service';
+import {ProductHttpService} from '../product-http.service';
 
 @Component({
   selector: 'app-product-list',
@@ -19,7 +20,7 @@ export class ProductListComponent implements OnInit{
     this.products = this.productService.findAll()
   }
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductHttpService) {}
 
   getSelectedProduct(prodSelected: Product) {
     this.productSelected = prodSelected
