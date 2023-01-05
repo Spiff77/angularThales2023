@@ -3,4 +3,4 @@
   <span (click)="productSelected = undefined">X</span> You have selected : {{productSelected?.name}} ({{productSelected?.category}})
 </div>
 <input type="text" name="search" id="search" [(ngModel)]="filterStr" placeholder="Filter on name">
-<app-product *ngFor="let prod of productsFiltered()" (outProduct)="getSelectedProduct($event)" [product]="prod"></app-product>
+<app-product *ngFor="let prod of products$ |async " (outProduct)="getSelectedProduct($event)" [product]="prod"></app-product>

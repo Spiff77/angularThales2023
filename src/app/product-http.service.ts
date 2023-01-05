@@ -8,9 +8,11 @@ import {Observable} from 'rxjs';
 })
 export class ProductHttpService {
 
+  url = 'http://localhost:8080/learn/api/products'
+
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Product[]>{
-    return this.http.get()
+    return this.http.get<Product[]>(this.url)
   }
 }
