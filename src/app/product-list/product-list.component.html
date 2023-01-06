@@ -1,8 +1,11 @@
-<h2>Products List</h2>
+<h2>Products List</h2><a routerLink="add">Add product</a>
 <div *ngIf="productSelected">
   <span (click)="productSelected = undefined">X</span>
   You have selected : {{productSelected?.name}}({{productSelected?.category}})
-  <a [routerLink]="[productSelected.id]">detail</a>
+  <a [routerLink]="['/products',productSelected.id]">detail</a>
 </div>
 <input type="text" name="search" id="search" [(ngModel)]="filterStr" placeholder="Filter on name">
-<app-product *ngFor="let prod of products " (outProduct)="getSelectedProduct($event)" [product]="prod"></app-product>
+<div *ngIf="!products.length">
+  Aucun élement dans la base de données
+</div>
+<app-product *ngFor="let prod of productsFiltered() " (outProduct)="getSelectedProduct($event)" [product]="prod"></app-product>

@@ -4,4 +4,8 @@
 </p>
 <div>Price: {{product?.price}}</div>
 <a routerLink="/products">retour à la liste</a>
-<button (click)="deleteProduct()">Delete product</button>
+<button (click)="displayConfirm = true" *ngIf="!displayConfirm">Delete product</button>
+<div *ngIf="displayConfirm">
+  <button (click)="deleteProduct()">Yes</button>
+  <button (click)="displayConfirm = false">NO</button>
+</div>

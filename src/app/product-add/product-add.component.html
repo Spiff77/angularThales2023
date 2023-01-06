@@ -1,0 +1,31 @@
+<h1>Ajouter un user</h1>
+<pre *ngIf="form">
+  {{form.value | json}}
+</pre>
+<form [formGroup]="form" *ngIf="form" (ngSubmit)="submitData()">
+  <div>
+    <label for="thename">Name</label>
+    <input type="text" id="thename" formControlName="name">
+  </div>
+  <div>
+    <label for="category">Category</label>
+    <input type="text" id="category" formControlName="category">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <textarea type="text" id="description" formControlName="description"></textarea>
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <input type="number" id="price" formControlName="price">
+  </div>
+  <div>
+    <label for="promo">Promo</label>
+    <input type="number" id="promo" formControlName="promo">
+  </div>
+  <div>
+    <label for="active">Active</label>
+    <input type="checkbox" id="active" formControlName="active">
+  </div>
+  <button type="submit">Send data</button>
+</form>

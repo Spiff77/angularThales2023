@@ -12,6 +12,7 @@ import {ProductHttpService} from '../product-http.service';
 export class ProductDetailComponent implements OnInit{
 
   product!: Product
+  displayConfirm = false
 
   constructor(private route: ActivatedRoute,
               private productHttpService: ProductHttpService,
