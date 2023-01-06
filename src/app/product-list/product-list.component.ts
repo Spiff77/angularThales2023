@@ -2,6 +2,7 @@ import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core'
 import {Product} from '../model/product.model';
 import {ProductService} from '../product.service';
 import {ProductHttpService} from '../product-http.service';
+import {MessengerService} from '../messenger.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,14 +14,22 @@ export class ProductListComponent implements OnInit{
   productSelected: Product|undefined
   filterStr = ''
   curentTimeout!: NodeJS.Timeout
-
   products: Product[] = []
 
+  constructor(private productService: ProductHttpService,
+              private messenger: MessengerService
+  ) {}
+
   ngOnInit(): void {
-    this.productService.findAll().subscribe(res => this.products = res)
+    this.fetchData();
+    this.messenger.retrieveEmitter().subscribe( () =>
+      this.fetchData()
+    )
   }
 
-  constructor(private productService: ProductHttpService) {}
+  private fetchData() {
+    this.productService.findAll().subscribe(res => this.products = res)
+  }
 
   /**
    * @example: desactivated but shows response to the output

@@ -9,3 +9,4 @@
   Aucun élement dans la base de données
 </div>
 <app-product *ngFor="let prod of productsFiltered() " (outProduct)="getSelectedProduct($event)" [product]="prod"></app-product>
+<app-product-add></app-product-add>

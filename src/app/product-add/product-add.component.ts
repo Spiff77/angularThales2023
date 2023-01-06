@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ProductHttpService} from '../product-http.service';
 import {Router} from '@angular/router';
+import {MessengerService} from '../messenger.service';
 
 @Component({
   selector: 'app-product-add',
@@ -14,7 +15,9 @@ export class ProductAddComponent implements OnInit{
 
   constructor(private fb: FormBuilder,
               private pHttp: ProductHttpService,
-              private router: Router) {
+              private router: Router,
+              private messenger: MessengerService
+  ) {
   }
 
   ngOnInit(): void {
@@ -29,6 +32,6 @@ export class ProductAddComponent implements OnInit{
   }
 
   submitData() {
-    this.pHttp.add(this.form.value).subscribe(()=> this.router.navigateByUrl('/products'))
+    this.pHttp.add(this.form.value).subscribe(()=> this.messenger.sendMessage())
   }
 }
