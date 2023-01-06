@@ -20,4 +20,7 @@ export class ProductHttpService {
     return this.http.get<Product>(`${this.url}/${id}`)
   }
 
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`)
+  }
 }
