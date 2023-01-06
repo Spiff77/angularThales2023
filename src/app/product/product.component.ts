@@ -1,5 +1,6 @@
 import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
 import {Product} from '../model/product.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -14,8 +15,11 @@ export class ProductComponent {
   @Output()
   outProduct = new EventEmitter<Product>();
 
+  constructor(private router: Router) {}
+
   @HostListener('click')
   sendDataToParent(){
-    this.outProduct.emit(this.product)
+    //this.outProduct.emit(this.product)
+    this.router.navigate(['/products', this.product.id])
   }
 }

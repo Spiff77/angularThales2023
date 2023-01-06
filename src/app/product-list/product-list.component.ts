@@ -22,6 +22,10 @@ export class ProductListComponent implements OnInit{
 
   constructor(private productService: ProductHttpService) {}
 
+  /**
+   * @example: desactivated but shows response to the output
+   * @param prodSelected: the product sent by the children (ProductComponent)
+   */
   getSelectedProduct(prodSelected: Product) {
     this.productSelected = prodSelected
     if(this.curentTimeout){
