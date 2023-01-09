@@ -2,6 +2,7 @@
 <p>
   {{product?.description}}
 </p>
+<div *ngIf="product.supplier">supplier:{{product.supplier.name}}</div>
 <div>Price: {{product?.price}}</div>
 <a routerLink="/products">retour à la liste</a>
 <button (click)="displayConfirm = true" *ngIf="!displayConfirm">Delete product</button>

@@ -1,9 +1,10 @@
 export interface Product{
   id: number,
-  name: string,
-  category: string,
-  description: string,
-  price: number,
+  name: string, // required
+  category: string, // required
+  description: string, // required, minLength: 10
+  price: number, // required, min: 1
   promo: number,
-  active: boolean
+  active: boolean,
+  supplier: any
 }

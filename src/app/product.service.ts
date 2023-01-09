@@ -28,7 +28,7 @@ export class ProductService {
 
   constructor() { }
 
-  findAll(): Product[]{
+  findAll(): any[]{
     return this.products
   }
 

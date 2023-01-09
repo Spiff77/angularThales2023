@@ -27,7 +27,10 @@ export class ProductAddComponent implements OnInit{
       description: '',
       price: 0,
       promo: 0,
-      active: true
+      active: true,
+      supplier: this.fb.group({
+        id: ''
+      })
     })
   }
 

@@ -19,7 +19,6 @@ export class ProductComponent {
 
   @HostListener('click')
   sendDataToParent(){
-    //this.outProduct.emit(this.product)
     this.router.navigate(['/products', this.product.id])
   }
 }
